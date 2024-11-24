@@ -1,5 +1,7 @@
+'use client';
+
 import React from 'react';
-import { Flex, Text, Button } from '@/once-ui/components'; // Assuming once-ui contains some reusable components
+import { Flex, Text, Button, Badge } from '@/once-ui/components';
 import Link from 'next/link';
 
 const linkStyle = { textDecoration: 'none' };
@@ -10,11 +12,11 @@ const home = {
 };
 
 const person = {
-    name: "Your Name",
+    name: "Dustin Moore",
     avatar: "/path/to/avatar.jpg"
 };
 
-const baseURL = "yourwebsite.com";
+const baseURL = "dustinmoore.dev";
 
 export default function NavBar() {
     return (
@@ -23,18 +25,18 @@ export default function NavBar() {
                 as="nav"
                 padding="m"
                 gap="l"
-                justifyContent="space-between"
+                justifyContent="center"
                 alignItems="center"
                 fillWidth
-                style={{ backgroundColor: 'neutral-strong' }} // Correct way to set background color in React
+                style={{ backgroundColor: 'neutral-strong' }}
             >
                 {/* Branding / Logo */}
                 <Text as="h1">
-                    <Link href="/" style={linkStyle}>My Portfolio</Link>
+                    <Link href="/" style={linkStyle}>Dustin Moore</Link>
                 </Text>
 
                 {/* Navigation Links */}
-                <Flex as="div" gap="m" direction="row" alignItems="center">
+                <Flex as="div" gap="xs" direction="row" alignItems="center">
                     <Link href="/about" style={linkStyle}>
                         <Button variant="secondary">About</Button>
                     </Link>
@@ -46,10 +48,7 @@ export default function NavBar() {
                     </Link>
                     <Link href="/contact" style={linkStyle}>
                         <Button variant="secondary">Contact</Button>
-                    </Link>
-                    <Link href="/hire" style={linkStyle}>
-                        <Button variant="primary">Hire Me</Button>
-                    </Link>
+                    </Link>  
                 </Flex>
             </Flex>
 
