@@ -4,6 +4,18 @@ import Link from 'next/link';
 
 const linkStyle = { textDecoration: 'none' };
 
+const home = {
+    title: "My Portfolio",
+    description: "Discover my projects, read my blog, and get in touch!"
+};
+
+const person = {
+    name: "Your Name",
+    avatar: "/path/to/avatar.jpg"
+};
+
+const baseURL = "yourwebsite.com";
+
 export default function NavBar() {
     return (
         <>
@@ -17,7 +29,7 @@ export default function NavBar() {
                 style={{ backgroundColor: 'neutral-strong' }} // Correct way to set background color in React
             >
                 {/* Branding / Logo */}
-                <Text as="h1" variant="heading-medium">
+                <Text as="h1">
                     <Link href="/" style={linkStyle}>My Portfolio</Link>
                 </Text>
 
@@ -50,15 +62,47 @@ export default function NavBar() {
                 padding="xl"
                 style={{ backgroundColor: 'neutral-light', height: '80vh', textAlign: 'center' }}
             >
-                <Text as="h2" variant="heading-large">
+                <Text as="h2">
                     Welcome to My Portfolio
                 </Text>
-                <Text as="p" variant="body-large" style={{ marginTop: 'm' }}>
+                <Text as="p" style={{ marginTop: 'm' }}>
                     Discover my projects, read my blog, and get in touch!
                 </Text>
                 <Link href="/projects" style={linkStyle}>
                     <Button variant="primary" style={{ marginTop: 'l' }}>View My Work</Button>
                 </Link>
+            </Flex>
+
+            {/* JSON-LD Script */}
+            <Flex
+                maxWidth="m"
+                fillWidth
+                gap="xl"
+                direction="column"
+                alignItems="center"
+            >
+                <script
+                    type="application/ld+json"
+                    suppressHydrationWarning
+                    dangerouslySetInnerHTML={{
+                        __html: JSON.stringify({
+                            '@context': 'https://schema.org',
+                            '@type': 'WebPage',
+                            name: home.title,
+                            description: home.description,
+                            url: `https://${baseURL}`,
+                            image: `${baseURL}/og?title=${encodeURIComponent(home.title)}`,
+                            publisher: {
+                                '@type': 'Person',
+                                name: person.name,
+                                image: {
+                                    '@type': 'ImageObject',
+                                    url: `${baseURL}${person.avatar}`,
+                                },
+                            },
+                        }),
+                    }}
+                />
             </Flex>
         </>
     );
