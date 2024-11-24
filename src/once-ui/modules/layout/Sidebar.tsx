@@ -24,7 +24,7 @@ const Sidebar: React.FC = ({
                         variant="body-default-xs"
                         onBackground="neutral-weak"
                         marginBottom="8" marginLeft="16">
-                        Dashboard
+                        Dustin Moore
                     </Text>
                     <ToggleButton
                         width="fill"
@@ -40,7 +40,7 @@ const Sidebar: React.FC = ({
                                 name="PiHouseDuotone"
                                 onBackground="neutral-weak"
                                 size="xs"/>
-                            Home
+                            About Me
                         </Flex>
                     </ToggleButton>
                     <ToggleButton
@@ -57,7 +57,7 @@ const Sidebar: React.FC = ({
                                 name="PiTrendUpDuotone"
                                 onBackground="neutral-weak"
                                 size="xs"/>
-                            Analytics
+                            My Projects
                         </Flex>
                     </ToggleButton>
                     <ToggleButton
